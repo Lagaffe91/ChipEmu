@@ -1,0 +1,72 @@
+#pragma once
+#include <string>
+
+#define MEMORY_SIZE (4096)
+#define FONTSET_SIZE (80)
+
+class Chip8
+{
+	private:
+
+		unsigned char memory[MEMORY_SIZE];
+		unsigned char V[16];
+
+		unsigned int DelayTimer;
+		unsigned int SoundTimer;
+
+		unsigned short opcode;
+
+		unsigned char Display[64 * 32];
+
+		unsigned short pc = 0x200;
+		unsigned short I;				//Carry flag ?
+
+		unsigned short stack[16];		//Subroutine shit
+		unsigned short sp;				// ???
+
+		unsigned short KeyPad[16];
+
+		unsigned char chip8_fontset[FONTSET_SIZE] =
+		{
+		  0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
+		  0x20, 0x60, 0x20, 0x20, 0x70, // 1
+		  0xF0, 0x10, 0xF0, 0x80, 0xF0, // 2
+		  0xF0, 0x10, 0xF0, 0x10, 0xF0, // 3
+		  0x90, 0x90, 0xF0, 0x10, 0x10, // 4
+		  0xF0, 0x80, 0xF0, 0x10, 0xF0, // 5
+		  0xF0, 0x80, 0xF0, 0x90, 0xF0, // 6
+		  0xF0, 0x10, 0x20, 0x40, 0x40, // 7
+		  0xF0, 0x90, 0xF0, 0x90, 0xF0, // 8
+		  0xF0, 0x90, 0xF0, 0x10, 0xF0, // 9
+		  0xF0, 0x90, 0xF0, 0x90, 0x90, // A
+		  0xE0, 0x90, 0xE0, 0x90, 0xE0, // B
+		  0xF0, 0x80, 0x80, 0x80, 0xF0, // C
+		  0xE0, 0x90, 0x90, 0x90, 0xE0, // D
+		  0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
+		  0xF0, 0x80, 0xF0, 0x80, 0x80  // F
+		};
+
+		void ResetMemory();
+		void ResetDisplay();
+		void ResetRegisters();
+		void ResetStack();
+		void LoadFontSet();
+
+		void FetchOpcode();
+		void ExecuteOpcode();
+
+		static std::ifstream SelectFile();
+
+	public :
+
+		Chip8();
+
+		void Reset();				//Reset the chip at defaults values
+
+		void LoadROM();				//Select a file/rom and load it into chip memory
+
+		void EmulateCycle();		//Main function : Fetch, Decode, And execute opcodes
+		
+
+};
+
