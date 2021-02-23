@@ -2,17 +2,20 @@
 
 #include "Chip8.h"
 
-/*
-TODO :
-	-Fix Post build events (Maybe Cmake ?)
-	-Learn how the fuck work sdl
-*/
+// TODO: Implement SDL and start to work on graphical output
 
 
 int main(int argc, char** argv)
 {
-	std::cout << "Hello world \n";
-	int a ;
-	std::cin >> a;
+	Chip8 Chip;
+	
+	bool isRunning = true;
+
+	Chip.LoadROM();
+
+	while (isRunning) {
+		Chip.EmulateCycle();
+	}
+
 	return 0;
 }
