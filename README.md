@@ -30,5 +30,5 @@ Then build the emulator with the following commands (assuming you are in the "~/
 mkdir -p build
 cd build
 cmake ..
-cmake --build .
+cmake --build . --config Release
 ```
