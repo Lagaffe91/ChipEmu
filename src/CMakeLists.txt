@@ -1,4 +1,6 @@
-add_executable(ChipEmu)
+cmake_minimum_required(VERSION 3.19)
 
-#Need to do something more elegant
-target_sources(ChipEmu PUBLIC main.cpp PUBLIC Chip8.cpp PUBLIC Chip8.h)
+add_executable(ChipEmu main.cpp Chip8.h)
+
+#May Need to do something more elegant
+#https://stackoverflow.com/questions/10914607/how-to-collect-source-files-with-cmake-without-globbing is intresing
