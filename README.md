@@ -9,8 +9,7 @@ Here is the current progress of the project :
   - [x] Registers Emulation
   - [x] Reset Methods (Memory,	Display, Registers, Stack)
   - [x] Load ROM into memory
-  - [ ] Interpreter : Basic Emulation loop
-  - [ ] Interpreter : Opcodes implementation (20/34)
+  - [ ] Interpreter : Opcodes implementation (23/34)
  
 - [ ] Graphical output
   - [ ] Inputs handeling
@@ -22,7 +21,7 @@ Here is the current progress of the project :
 
 First, you need [CMake 3.19](https://cmake.org/) or newer.
 
-You also need to download [SDL2](https://www.libsdl.org/index.php) and pass it to cmake order to build the emulator.
+You also need to download [SDL2](https://www.libsdl.org/index.php) and pass it to cmake in order to build the emulator.
 
 Then build the emulator with the following commands (assuming you are in the "~/ChipEmu" folder):
 
